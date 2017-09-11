@@ -1,0 +1,215 @@
+.hide {
+    display: none;
+}
+a {
+    margin-right: 10px;
+}
+
+a.active {
+    border: 1px solid red;
+}
+
+li.striked {
+    text-decoration: line-through;
+    text-decoration-color: red;
+}
+
+#TodoApp {
+    width: 60%
+}
+
+input[type="text"] {
+    border: 2px solid violet;
+    padding: 6px 1px;
+    font-size: 18px;
+    width: 40%;
+    text-indent: 25px;
+    font-style: italic;
+    font-family: serif;
+    border-radius: 20px;
+}
+
+input[type="text"]:focus, input[type="text"]:hover {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+i {
+    background: url(../images/form_sprite.png) no-repeat;
+    height: 18px;
+    width: 20px;
+    display: inline-block;
+}
+
+#TodoApp .goal {
+    background-position: -775px -130px;
+    position: absolute;
+    top: 18px;
+}
+
+#TodoApp .search {
+    background-position: -773px -61px;
+    position: absolute;
+    top: 18px;
+}
+
+#TodoApp .sort {
+    background-position: -660px -126px;
+    float: right;
+    cursor: move;
+}
+
+.todo-list ul {
+    list-style-type: none;
+}
+
+.todo-list {
+    border: 5px solid #d800ff;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-radius: 15px;
+}
+
+.todo-list li {
+    border-bottom: 1px dashed black;
+    margin: 6px 10px 0 0;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.todo-list > span {
+    margin: 0 auto;
+    display: table;
+}
+
+.todo-list input[type='checkbox']{
+    float: left;
+    margin-left: -20px;
+    margin-top: 6px;
+}
+
+div.clearfix {
+    border-bottom: 2px dashed #d800ff;
+    margin: 0 13px;
+}
+
+a.delete {
+    float: right;
+}
+
+a.button{
+    text-decoration: none;
+    font-size: 14px;
+    padding: 2px 8px;
+    color: white;
+    background-color: #d800ff;
+    margin: 0 10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+a.delete-all{
+    float: left;
+    margin-left: 13px;
+    margin-right: -40px;
+    margin-top: -5px;
+}
+
+a.fetch{
+    float:right;
+    margin-right: 10px;
+    margin-top: -23px;
+}
+
+a.add_todo_btn{
+    padding: 10px 20px;
+}
+
+li.placeholderContent {
+    text-align: center;
+    color: red;
+    background-color:yellow;
+    border:1px dashed red;
+}
+
+div.loader {
+    background: white url(../images/ajax-loader.gif) center center no-repeat;
+    height: 190px;
+    background-size: 200px;
+}
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+}
+.block {
+    clear: both;
+}
+
+.winnerBoard {
+    margin-left: 120px;
+    margin-top: -70px;
+}
+
+.steps li {
+    text-decoration: underline;
+    cursor: pointer;
+    width: 55px;
+}
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity 2500ms ease-in;
+}
+
+.example-enter {
+    opacity: 1;
+}
+
+.example-enter.example-enter-active {
+    opacity: 0.01;
+    transition: opacity 2500ms ease-in;
+}
+
+div.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+div.modal-content {
+    background-color: #fefefe;
+    margin: 90px 175px;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 65%;
+}
+
+div.modal-close {
+    float: right;
+    margin: -45px -45px 0 0;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
