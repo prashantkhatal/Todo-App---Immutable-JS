@@ -10,8 +10,15 @@ import {todoDecorator} from '../middlewares/todoDecorator';
 import {asyncActionMiddleware} from '../middlewares/asyncActionMiddleware';
 
 import { Provider } from 'react-redux';
+import {fromJS} from 'immutable';
 
-const store = createStore( reducers, compose(applyMiddleware(asyncActionMiddleware, todoDecorator), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ) );
+const initalState = fromJS({
+	todos: [],
+	visibility: 'SHOW_ALL',
+	searchText: ''
+});
+
+const store = createStore( reducers, initalState, compose(applyMiddleware(asyncActionMiddleware, todoDecorator), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() ) );
 
 render( <Provider store={store}>
             <AppRouter />

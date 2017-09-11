@@ -9,7 +9,7 @@ export class AppRouter extends React.Component {
             <Router history={browserHistory}>
                 <Route path="/" component={TodosApp}>
                     {/*<Route path="*" component={TodosApp}/>*/}
-                    <Route path="/(:filter)" component={TodosApp}/>
+                    <Route path="/(:filter)"/>
                 </Route>
             </Router>
         );

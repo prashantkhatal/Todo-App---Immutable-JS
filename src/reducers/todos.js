@@ -1,35 +1,35 @@
 import { ADD_TODO, TOGGLE_TODO, DELETE_TODOS, IMPORT_TODOS, SEARCH_TODO} from '../actions';
+import {fromJS, Map} from 'immutable';
 
 let idCounter = 0;
 
-export default function todoRD( state = [], action ) {
+export default function todoRD( state, action ) {
+
     switch( action.type ) {
 
         case ADD_TODO:
-            state = [ ...state, { id: idCounter++, text: action.text, completed: false } ];
+            state = state.push( Map({ id: idCounter++, text: action.text, completed: false }) );
             break;
 
         case TOGGLE_TODO:
-            state = state.map( function( todo ) {
-                if( todo.id == action.id ) {
-                    return { ...todo, completed: !todo.completed }
+            state = state.map( todo => {
+                if( todo.get('id') == action.id ) {
+	                todo = todo.set('completed', !todo.get('completed'));
                 }
                 return todo;
             } );
             break;
 
         case DELETE_TODOS:
-            state = state.filter((todo) => -1 == action.ids.indexOf(todo.id) );
+            state = state.filter((todo) => -1 == action.ids.indexOf(todo.get('id')) );
             break;
 
         case IMPORT_TODOS:
-            state = [ ...state, ...action.todos.map( todo => {
-                return { ...todo, id: idCounter++ }
-            } ) ];
+            state = fromJS(action.todos).map( (todo, index)=> todo.set('id', idCounter++))
             break;
 
         default:
-            return [...state];
+            return state;
     }
     return state;
 }

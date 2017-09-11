@@ -7,7 +7,6 @@ import {Modal} from './Modal';
 
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import ReactTransitionGroup from 'react-addons-transition-group';
-import {SingleTransitionElement} from './SingleTransitionElement';
 
 export class TodoList extends React.Component{
 
@@ -38,10 +37,10 @@ export class TodoList extends React.Component{
         let list = [{'content':<li className='no-drag' style={{textAlign: 'center'}}>No Goals</li>}],
             placeholder = <li className="placeholderContent"> DROP HERE ! </li>;
 
-        if( this.props.todos.length) {
+        if( this.props.todos.size) {
 	        list = [];
 	        this.props.todos.map( ( todo, index ) => {
-		        list.push( { 'content':<Todo key={todo.id} {...todo} toggleTodo={this.props.toggleTodo}
+		        list.push( { 'content':<Todo key={todo.get('id')} {...todo.toJS()} toggleTodo={this.props.toggleTodo}
                        deleteTodos={this.props.deleteTodos} />});
 	        } )
         }
@@ -125,7 +124,7 @@ const GetChild = (props) => {
 
 TodoList.propTypes = {
     apiUrl: PropTypes.string.isRequired,
-    todos: PropTypes.array,
+    todos: PropTypes.object,
     toggleTodo: PropTypes.func.isRequired
 }
 

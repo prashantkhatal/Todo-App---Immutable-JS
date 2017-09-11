@@ -5,7 +5,7 @@ import { switchVisibility } from '../actions/ActionCreators';
 
 const mapStatesToProps = function( state ) {
     return {
-        visibilityFilter: state.visibility
+        visibilityFilter: state.get('visibility')
     }
 };
 

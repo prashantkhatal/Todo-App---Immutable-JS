@@ -17,12 +17,12 @@ function listOutTodos( todos, status, searchText = '' ) {
         case VISIBILITY_STATUSES.SHOW_ALL:
     }
 
-    return todos.filter( ( todo ) => ( VISIBILITY_STATUSES.SHOW_ALL == status || todo.completed == statusFlag ) && -1 != todo.text.toLowerCase().indexOf(searchText) );
+    return todos.filter( ( todo ) => ( VISIBILITY_STATUSES.SHOW_ALL == status || todo.get('completed') == statusFlag ) && -1 != todo.get('text').toLowerCase().indexOf(searchText) );
 }
 
 const mapStatesToMap = function( state, myOwnProps ) {
     return {
-        todos: listOutTodos( state.todos, myOwnProps.params.filter || state.visibility, state.searchText )
+        todos: listOutTodos( state.get('todos'), myOwnProps.params.filter || state.get('visibility'), state.get('searchText') )
     }
 }
 
