@@ -6,6 +6,8 @@ import { VisibilityContainer } from '../containers/VisibilityContainer';
 import { OtherComponent } from './OtherComponents';
 import Config from '../configs';
 
+require('../css/style.css');
+
 export function TodosApp( props ) {
     return (
         <div>
