@@ -8,6 +8,7 @@ import { reducers } from '../reducers';
 import thunkMiddleware from 'redux-thunk';      //instead used asyncActionMiddleware
 import {todoDecorator} from '../middlewares/todoDecorator';
 import {asyncActionMiddleware} from '../middlewares/asyncActionMiddleware';
+import Config from '../configs';
 
 import { Provider } from 'react-redux';
 import {fromJS} from 'immutable';
@@ -23,7 +24,7 @@ const store = createStore( reducers, initalState, compose(applyMiddleware(asyncA
 render( <Provider store={store}>
             <AppRouter />
         </Provider>,
-    document.getElementById( 'TodoApp' )
+    document.getElementById( Config.rootElementId )
 );
 
 Provider.propTypes = {
